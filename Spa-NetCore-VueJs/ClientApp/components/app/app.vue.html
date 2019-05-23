@@ -1,14 +1,20 @@
 <template>
-    <div id='app-root' class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3">
-                <menu-component />
-            </div>
-            <div class="col-sm-9">
-                <router-view></router-view>
-            </div>
-        </div>
+    <div id="app-root">
+      <h1>Welcome to Profitoro</h1>
+      <lading-page></lading-page>
     </div>
-</template>
+  </template>
+  
+  <script>
+    export default {
+      name: 'app-root',
+      components: {
+      }
+    }
+  </script>
+  
+  <style>
+  </style>
+  
 
 <script src="./app.ts"></script>
