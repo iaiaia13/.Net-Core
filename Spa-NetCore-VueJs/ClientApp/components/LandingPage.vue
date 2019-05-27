@@ -10,6 +10,7 @@
 import { Authentication, GoToAppLink, TagLine } from "./landing"
 import { Logo } from "./common"
 export default {
+  name: "landing-page",
   components: {
     Logo,
     Authentication,
