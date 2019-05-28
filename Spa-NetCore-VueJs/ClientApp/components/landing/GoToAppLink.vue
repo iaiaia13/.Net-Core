@@ -1,5 +1,5 @@
 <template>
-  <div>Go To App</div>
+  <div>Go To App Link</div>
 </template>
 <script>
   export default {

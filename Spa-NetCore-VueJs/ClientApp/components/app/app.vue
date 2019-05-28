@@ -6,7 +6,7 @@
 </template>
   
   <script>
-import LandingPage from "./LandingPage.vue";
+import LandingPage from "../LandingPage.vue"
 export default {
   name: "app-root",
   components: {

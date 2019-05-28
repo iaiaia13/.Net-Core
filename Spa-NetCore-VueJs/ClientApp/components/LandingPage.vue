@@ -1,14 +1,14 @@
 <template>
   <div>
     <logo></logo>
-    <tagline></tagline>
+    <tag-line></tag-line>
     <authentication></authentication>
     <go-to-app-link></go-to-app-link>
   </div>
 </template>
 <script>
-import { Authentication, GoToAppLink, TagLine } from "./landing"
-import { Logo } from "./common"
+import { Authentication, GoToAppLink, TagLine } from "./landing";
+import { Logo } from "./common";
 export default {
   name: "landing-page",
   components: {
@@ -17,7 +17,7 @@ export default {
     GoToAppLink,
     TagLine
   }
-}
+};
 </script>
 <style scoped lang="sass">
 
