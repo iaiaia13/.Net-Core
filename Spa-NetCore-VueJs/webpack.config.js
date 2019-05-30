@@ -8,17 +8,69 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
 
     return [{
-        stats: { modules: false },
+        stats: {
+            modules: false
+        },
         context: __dirname,
-        resolve: { extensions: [ '.js', '.ts', '.vue' ] },
-        entry: { 'main': './ClientApp/boot.js' },
+        resolve: {
+            extensions: ['.js', '.ts', '.vue']
+        },
+        entry: {
+            'main': './ClientApp/boot.js'
+        },
         module: {
-            rules: [
-                { test: /\.vue$/, include: /ClientApp/, loader: 'vue-loader' },
-                { test: /\.vue\.html$/, include: /ClientApp/, loader: 'vue-loader', options: { loaders: { js: 'awesome-typescript-loader?silent=true' } } },
-                { test: /\.ts$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
-                { test: /\.css$/, use: isDevBuild ? [ 'style-loader', 'css-loader' ] : ExtractTextPlugin.extract({ use: 'css-loader?minimize' }) },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+            rules: [{
+                    test: /\.vue$/,
+                    include: /ClientApp/,
+                    loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            scss: 'vue-style-loader!css-loader!sass-loader' // <-- this line
+                        }
+                    }
+                },
+                {
+                    test: /\.vue\.html$/,
+                    include: /ClientApp/,
+                    loader: 'vue-loader',
+                    options: {
+                        loaders: {
+                            js: 'awesome-typescript-loader?silent=true'
+                        }
+                    }
+                },
+                {
+                    test: /\.ts$/,
+                    include: /ClientApp/,
+                    use: 'awesome-typescript-loader?silent=true'
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        'vue-style-loader',
+                        'css-loader'
+                    ],
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        'vue-style-loader',
+                        'css-loader',
+                        'sass-loader'
+                    ],
+                },
+                {
+                    test: /\.sass$/,
+                    use: [
+                        'vue-style-loader',
+                        'css-loader',
+                        'sass-loader?indentedSyntax'
+                    ],
+                },
+                {
+                    test: /\.(png|jpg|jpeg|gif|svg)$/,
+                    use: 'url-loader?limit=25000'
+                }
             ]
         },
         output: {
